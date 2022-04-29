@@ -28,10 +28,10 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <NavigationContainer theme={theme}>
-      {/* Standalone Sign up screen */}
       <Stack.Navigator
         screenOptions={{headerShown: false}}
         initialRouteName={'SignUp'}>
+        {/* Standalone Sign up screen */}
         <Stack.Screen name="SignUp" component={SignUp} />
 
         {/* Tabs */}

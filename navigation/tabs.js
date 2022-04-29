@@ -17,10 +17,68 @@ const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Scan" component={Scan} />
-      <Tab.Screen name="User" component={Home} />
+    <Tab.Navigator
+      tabBarOptions={{
+        showLabel: false,
+        style: {
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          backgroundColor: 'transparent',
+          elevation: 0,
+        },
+      }}>
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <Image
+              source={icons.more}
+              resizeMode="contain"
+              style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? COLORS.white : COLORS.secondary,
+              }}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Scan"
+        component={Scan}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <Image
+              source={icons.scan}
+              resizeMode="contain"
+              style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? COLORS.white : COLORS.secondary,
+              }}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="User"
+        component={Home}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <Image
+              source={icons.user}
+              resizeMode="contain"
+              style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? COLORS.white : COLORS.secondary,
+              }}
+            />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
