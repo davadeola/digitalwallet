@@ -74,6 +74,28 @@ const TabBarCustomButton = ({
   }
 };
 
+//custom tab bar
+const CustomTabBar = props => {
+  if (isIphoneX()) {
+    return (
+      <View>
+        <View
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            right: 0,
+            height: 30,
+            backgroundColor: COLORS.white,
+          }}>
+          <BottomTabBar {...props.props} />
+        </View>
+      </View>
+    );
+  } else {
+    return <BottomTabBar {...props.props} />;
+  }
+};
+
 const Tabs = () => {
   return (
     <Tab.Navigator
@@ -86,7 +108,8 @@ const Tabs = () => {
           backgroundColor: 'transparent',
           elevation: 0,
         },
-      }}>
+      }}
+      tabBar={props => <CustomTabBar props={props} />}>
       <Tab.Screen
         name="Home"
         component={Home}
