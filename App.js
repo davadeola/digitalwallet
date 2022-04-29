@@ -20,15 +20,22 @@ const theme = {
   },
 };
 
+//import Tabs for navigation
+import Tabs from './navigation/tabs';
+
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer theme={theme}>
+      {/* Standalone Sign up screen */}
       <Stack.Navigator
         screenOptions={{headerShown: false}}
         initialRouteName={'SignUp'}>
         <Stack.Screen name="SignUp" component={SignUp} />
+
+        {/* Tabs */}
+        <Stack.Screen name="Home" component={Tabs} />
       </Stack.Navigator>
     </NavigationContainer>
   );
